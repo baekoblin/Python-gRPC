@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package auth;
+
+// JWT 발급 및 검증을 위한 서비스 정의
+service AuthService {
+  rpc GenerateToken (AuthRequest) returns (AuthResponse);
+  rpc VerifyToken (TokenRequest) returns (TokenResponse);
+}
+
+// 요청 및 응답 메시지 정의
+message AuthRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message AuthResponse {
+  string token = 1;
+}
+
+message TokenRequest {
+  string token = 1;
+}
+
+message TokenResponse {
+  bool valid = 1;
+}

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package error_handling_example;
+
+service Calculator {
+  rpc Divide (DivideRequest) returns (DivideResponse);
+}
+
+message DivideRequest {
+  double dividend = 1;
+  double divisor = 2;
+}
+
+message DivideResponse {
+  double quotient = 1;
+}

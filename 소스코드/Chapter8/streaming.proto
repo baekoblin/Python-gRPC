@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+
+package streaming;
+
+// 요청 메시지 정의
+message RequestMessage {
+  string data = 1;
+}
+
+// 응답 메시지 정의
+message ResponseMessage {
+  string result = 1;
+}
+
+// 서비스 정의
+service StreamingService {
+  // 클라이언트 스트리밍 RPC
+  rpc StreamData(stream RequestMessage) returns (ResponseMessage);
+}

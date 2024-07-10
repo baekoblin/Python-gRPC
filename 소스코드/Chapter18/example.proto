@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+service ExampleService {
+  rpc UnaryCall (ExampleRequest) returns (ExampleResponse) {}
+}
+
+message ExampleRequest {
+  string message = 1;
+}
+
+message ExampleResponse {
+  string message = 1;
+}

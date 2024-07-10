@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package chat;
+
+service ChatService {
+  rpc ConnectUser(User) returns (ConnectionStatus);
+  rpc SendMessage(Message) returns (Empty);
+  rpc ReceiveMessages(User) returns (stream Message);
+}
+
+message User {
+  string name = 1;
+}
+
+message ConnectionStatus {
+  bool success = 1;
+  string message = 2;
+}
+
+message Message {
+  string sender = 1;
+  string receiver = 2;
+  string content = 3;
+}
+
+message Empty {}
